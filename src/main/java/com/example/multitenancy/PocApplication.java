@@ -1,6 +1,6 @@
 package com.example.multitenancy;
 
-import com.example.multitenancy.configuration.TenantSettings;
+import com.example.multitenancy.configuration.TenantConfig;
 import com.example.multitenancy.routing.TenantAwareRoutingSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 public class PocApplication {
 
     @Autowired
-    TenantSettings tenantSettings;
+    TenantConfig tenantConfig;
 
     public static void main(String[] args) {
         SpringApplication.run(PocApplication.class, args);
@@ -25,7 +25,7 @@ public class PocApplication {
     @Bean
     public DataSource dataSource() {
         AbstractRoutingDataSource dataSource = new TenantAwareRoutingSource();
-        dataSource.setTargetDataSources(tenantSettings.getDataSourceMap());
+        dataSource.setTargetDataSources(tenantConfig.getDataSourceMap());
         return dataSource;
     }
 

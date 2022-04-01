@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Configuration
 @ConfigurationProperties("tenant")
-public class TenantSettings {
+public class TenantConfig {
 
     private Map<String, String> dataSourceMap;
 
