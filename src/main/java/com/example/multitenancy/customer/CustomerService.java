@@ -7,21 +7,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
 
     @Autowired
-    private CustomerDao customerDao;
+    protected CustomerRepository customerRepository;
 
     public ResponseEntity<List<Customer>> getAllCustomers() {
-        List<Customer> customers = customerDao.getAllCustomers();
+        System.out.println("Listing all customers");
+        List<Customer> customers = customerRepository.findAll();
         return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
     }
 
-    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Integer id) {
-        System.out.println("the id: " + id);
-        Customer customer = customerDao.getCustomer(id);
-        return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+    public ResponseEntity<Optional<Customer>> getCustomerById(@PathVariable("id") long id) {
+        System.out.println("Returning customer with the id: " + id);
+        Optional<Customer> customer = customerRepository.findById(id);
+        return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.OK);
     }
 }
