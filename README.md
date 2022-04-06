@@ -1,7 +1,7 @@
-#Introduction
+# Introduction
 ...
-#Installation
-###Add the following dependency to the pom.xml file
+# Installation
+### Add the following dependency to the pom.xml file
 ```
 <dependency>
     <groupId>nl.julianrueck</groupId>
@@ -9,8 +9,8 @@
     <version>1.0.0</version>
 </dependency>
 ```
-#Settings
-###application.yml
+# Settings
+### application.yml
 ```
 spring:
    jpa:
