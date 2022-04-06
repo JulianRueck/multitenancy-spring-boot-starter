@@ -12,7 +12,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-class PocApplicationTests {
+class ApplicationTests {
 
     @Autowired
     private TenantConfig tenantConfig;
