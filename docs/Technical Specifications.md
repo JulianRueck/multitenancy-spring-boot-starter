@@ -35,16 +35,20 @@ TenantAwareRoutingSource --> User : tenantId
 ### Tenant data source configuration
 A developer using this project is able to set multiple data sources using the application.yml file as described in the README.
 The data sources defined in the application.yml file are mapped to the TenantConfig class using the @Configuration and @ConfigurationProperties annotations.
-TenantConfig contains logic to create and return the actual data sources based the String input from application.yml.
+TenantConfig contains logic to create and return actual DataSource objects based the String input from the application.yml file.
+<br>
+In the ApplicationConfig class a DataSource Bean is defined. This DataSource contains all the user defined data sources in a Map.
+Spring framework automatically uses it for database operations.
 ```puml
 @startuml
 actor User
 
 application.yml -> TenantConfig : Automatic mapping
-User -> Application : dataSource = new AbstractRoutingDatasource()
-Application -> TenantConfig : getDataSourceMap()
+User -> ApplicationConfig : dataSource = new AbstractRoutingDatasource()
+ApplicationConfig -> TenantConfig : getDataSourceMap()
 TenantConfig -> TenantConfig : createDataSources()
-TenantConfig --> Application : dataSourceMap
-Application -> TenantAwareRoutingSource : setTargetDataSources(dataSourceMap)
+TenantConfig --> ApplicationConfig : dataSourceMap
+ApplicationConfig -> TenantAwareRoutingSource : setTargetDataSources(dataSourceMap)
+ApplicationConfig --> User : DataSource
 @enduml
 ```
