@@ -17,7 +17,7 @@ public class ApplicationConfig {
     @Bean
     public DataSource dataSource() {
         AbstractRoutingDataSource dataSource = new TenantAwareRoutingSource();
-        dataSource.setTargetDataSources(tenantConfig.getDataSourceMap());
+        dataSource.setTargetDataSources(tenantConfig.getDataSources());
         return dataSource;
     }
 }

@@ -19,18 +19,24 @@ class ApplicationTests {
 
     @Test
     void givenDataSourceMap_whenBindingPropertiesFile_thenDataSourceIsCreated() {
-
-        Map<String, String> dataSourceMap = new HashMap<>();
-        dataSourceMap.put("tenantId1", "driver;org.postgresql.Driver, url;jdbc:postgresql:db1, username;postgres, password;password");
-        tenantConfig.setDataSourceMap(dataSourceMap);
-        HikariDataSource actualDataSource = (HikariDataSource)tenantConfig.getDataSourceMap().get("tenantId1");
+        // Arrange
+        TenantConfig.Tenant tenant = new TenantConfig.Tenant();
+        TenantConfig.DataSource dataSource = new TenantConfig.DataSource();
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql:db1");
+        dataSource.setDriverClassName("postgres");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        tenant.setId("tenantId1");
+        tenant.setDataSource(dataSource);
 
         HikariDataSource expectedDataSource = new HikariDataSource();
         expectedDataSource.setDriverClassName("org.postgresql.Driver");
         expectedDataSource.setJdbcUrl("jdbc:postgresql:db1");
         expectedDataSource.setUsername("postgres");
         expectedDataSource.setPassword("password");
-
+        // Act
+        HikariDataSource actualDataSource = (HikariDataSource) tenantConfig.getDataSources().get("tenantId1");
+        // Assert
         assertEquals(expectedDataSource.getDriverClassName(), actualDataSource.getDriverClassName());
         assertEquals(expectedDataSource.getJdbcUrl(), actualDataSource.getJdbcUrl());
         assertEquals(expectedDataSource.getUsername(), actualDataSource.getUsername());
