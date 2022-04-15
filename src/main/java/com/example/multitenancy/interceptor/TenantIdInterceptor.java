@@ -29,6 +29,6 @@ public class TenantIdInterceptor implements HandlerInterceptor {
         // After completing the request, make sure to erase the Tenant from the current Thread. It's
         // because Spring may reuse the Thread in the Thread Pool and you don't want to leak this
         // information:
-        ThreadLocalStorage.setTenantId(null);
+        ThreadLocalStorage.removeTenantId();
     }
 }

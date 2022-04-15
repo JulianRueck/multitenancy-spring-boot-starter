@@ -15,7 +15,7 @@ TenantIdInterceptor -> HTTPServletRequest : getHeader("tenantId")
 HTTPServletRequest --> TenantIdInterceptor : tenantId
 TenantIdInterceptor -> ThreadLocalStorage : setTenantId(tenantId)
 TenantIdInterceptor -> TenantIdInterceptor : AfterCompletion(request)
-TenantIdInterceptor -> ThreadLocalStorage : setTenantId(null)
+TenantIdInterceptor -> ThreadLocalStorage : removeTenantId()
 @enduml
 ```
 ### AbstractRoutingDataSource
@@ -45,7 +45,7 @@ actor User
 
 application.yml -> TenantConfig : Automatic mapping
 User -> ApplicationConfig : dataSource = new AbstractRoutingDatasource()
-ApplicationConfig -> TenantConfig : getDataSourceMap()
+ApplicationConfig -> TenantConfig : getDataSources()
 TenantConfig -> TenantConfig : createDataSources()
 TenantConfig --> ApplicationConfig : dataSourceMap
 ApplicationConfig -> TenantAwareRoutingSource : setTargetDataSources(dataSourceMap)
