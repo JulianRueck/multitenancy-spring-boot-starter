@@ -10,8 +10,8 @@ import javax.persistence.Table;
 public class Customer {
 
     @Id
-    public long id;
-    public String name;
+    private long id;
+    private String name;
 
     public Customer() {
     }
