@@ -15,6 +15,13 @@
     <description>Provides an implementation for multitenancy</description>
     <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
     <developers>
         <developer>
             <name>Julian Rûeck</name>
@@ -41,13 +48,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
 
     <properties>
         <java.version>17</java.version>
