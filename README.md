@@ -12,12 +12,17 @@
 # Settings
 ### application.yml
 ```
-spring:
-   jpa:
-    database: postgresql
-
-tenant:
-  dataSourceMap:
-    tenantId1: "driver;org.postgresql.Driver, url;jdbc:postgresql:db1, username;postgres, password;password"
-    tenantId2: "driver;org.postgresql.Driver, url;jdbc:postgresql:db2, username;postgres, password;password"
+tenantList:
+  - id: tenantId1
+    dataSource:
+      driverClassName: org.postgresql.Driver
+      url: jdbc:postgresql:db1
+      username: postgres
+      password: password
+  - id: tenantId2
+    dataSource:
+      driverClassName: org.postgresql.Driver
+      url: jdbc:postgresql:db2
+      username: postgres
+      password: password
 ```
