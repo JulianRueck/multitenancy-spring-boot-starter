@@ -22,7 +22,7 @@ public class TenantProperties {
         for (Tenant tenant : tenantList) {
             DataSource ymlDataSource = tenant.getDataSource();
             HikariDataSource dataSource = new HikariDataSource();
-            dataSource.setDriverClassName(ymlDataSource.getDriverClassName());
+            dataSource.setDriverClassName(ymlDataSource.driverClassName);
             dataSource.setJdbcUrl(ymlDataSource.url);
             dataSource.setUsername(ymlDataSource.username);
             dataSource.setPassword(ymlDataSource.password);

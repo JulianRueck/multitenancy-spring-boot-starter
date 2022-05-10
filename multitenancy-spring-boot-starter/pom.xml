@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>multitenancy-spring-boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>multitenancy-spring-boot-starter</name>
     <description>Provides an implementation for multitenancy</description>
     <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
@@ -12,7 +12,7 @@
     <parent>
         <artifactId>spring-boot-starter-multitenancy</artifactId>
         <groupId>io.github.julianrueck</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <licenses>
@@ -51,6 +51,7 @@
 
     <properties>
         <java.version>17</java.version>
+        <multitenancy.version>1.0-SNAPSHOT</multitenancy.version>
     </properties>
 
 
@@ -62,26 +63,22 @@
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>multitenancy-spring-boot-autoconfigure</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${multitenancy.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${multitenancy.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>database-per-tenant</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${multitenancy.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>interceptors</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${multitenancy.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,28 +89,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.pitest</groupId>
-            <artifactId>pitest-junit5-plugin</artifactId>
-            <version>0.14</version>
-        </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <scope>runtime</scope>
-                <version>42.3.3</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <plugins>
@@ -171,31 +147,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>1.7.5</version>
             </plugin>
         </plugins>
     </build>

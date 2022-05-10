@@ -18,8 +18,8 @@ import javax.sql.DataSource;
 @EnableConfigurationProperties(MultitenancyProperties.class)
 public class MultitenancyAutoConfiguration {
 
-    @Autowired
-    private MultitenancyProperties multitenancyProperties;
+//    @Autowired
+//    private MultitenancyProperties multitenancyProperties;
 
     @Bean
     @ConditionalOnMissingBean
@@ -29,6 +29,7 @@ public class MultitenancyAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
+    // TODO: conditional on property
     public InterceptorConfiguration getInterceptorConfiguration() {
         return new InterceptorConfiguration();
     }

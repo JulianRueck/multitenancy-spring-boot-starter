@@ -1,0 +1,28 @@
+spring:
+  jpa:
+    database: postgresql
+
+#  datasource:
+#    url: jdbc:postgresql:db1
+#    username: postgres
+#    password: password
+#    driverClassName: org.postgresql.Driver
+
+multitenancy:
+  implementation: DATABASE_PER_TENANT
+  interceptor: HEADER
+
+  tenantList:
+    - id: tenantId1
+      dataSource:
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql:db1
+        username: postgres
+        password: password
+    - id: tenantId2
+      dataSource:
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql:db2
+        username: postgres
+        password: password
+
