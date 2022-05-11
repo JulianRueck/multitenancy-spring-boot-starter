@@ -1,6 +1,29 @@
-# Technincal Specifications
+# Technical Specifications
+## Design
+### multi module
+The project is subject to a multi module architecture.
+The below diagram describes the modules and their dependencies to each other.
+```puml
+@startuml
+[multitenancy-spring-boot-starter] as msbs
+[multitenancy-spring-boot-autoconfigure] as msba
+[core] as core
+[interceptors] as interceptors
+[database-per-tenant] as dpt
+
+msbs ..> msba
+interceptors ..> core
+core <.. dpt
+msbs ..> core
+msbs ..> interceptors
+msbs ..> dpt
+core <.. msba : optional
+dpt <.. msba : optional
+interceptors <.. msba : optional
+@enduml
+```
 ## Program Flow
-###Interceptor
+### Interceptor
 The TenantIdInterceptors PreHandle method executes logic before the request is handled. 
 So before anything happens the tenantId is retrieved from the request and is set in the ThreadLocalStorage.
 ThreadLocal is used so that the context is bound to the currently executing thread.

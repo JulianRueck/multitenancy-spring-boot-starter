@@ -14,6 +14,7 @@ public class TenantProperties {
 
     private List<Tenant> tenantList;
 
+    // TODO: Add options for all other Hikari DataSource settings; timeouts, poolsize, etc.
     private Map<Object, Object> createDataSources() {
         if (tenantList.isEmpty()) {
             throw new IllegalStateException("List containing tenants cannot be empty. Please set at least one tenant in the application.yml file.");
@@ -32,6 +33,10 @@ public class TenantProperties {
         return dataSources;
     }
 
+    /**
+     * Calls private method to generate data sources from input.
+     * @return The map of data sources
+     */
     public Map<Object, Object> getDataSources() {
         return createDataSources();
     }

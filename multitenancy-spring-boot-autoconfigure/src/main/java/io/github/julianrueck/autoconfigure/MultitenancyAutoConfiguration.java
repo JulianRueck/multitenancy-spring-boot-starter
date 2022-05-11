@@ -2,7 +2,6 @@ package io.github.julianrueck.autoconfigure;
 
 import io.github.julianrueck.core.ThreadLocalStorage;
 import io.github.julianrueck.databasepertenant.routing.TenantAwareRoutingSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -18,9 +17,6 @@ import javax.sql.DataSource;
 @EnableConfigurationProperties(MultitenancyProperties.class)
 public class MultitenancyAutoConfiguration {
 
-//    @Autowired
-//    private MultitenancyProperties multitenancyProperties;
-
     @Bean
     @ConditionalOnMissingBean
     public TenantProperties tenantProperties() {
@@ -29,7 +25,7 @@ public class MultitenancyAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    // TODO: conditional on property
+    @ConditionalOnProperty(prefix = "multitenancy", name = "interceptor")
     public InterceptorConfiguration getInterceptorConfiguration() {
         return new InterceptorConfiguration();
     }

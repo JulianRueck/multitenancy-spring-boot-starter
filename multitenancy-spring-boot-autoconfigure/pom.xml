@@ -2,20 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <artifactId>spring-boot-starter-multitenancy</artifactId>
         <groupId>io.github.julianrueck</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <artifactId>multitenancy-spring-boot-autoconfigure</artifactId>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <multitenancy.version>1.0-SNAPSHOT</multitenancy.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -35,24 +30,25 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <optional>true</optional>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>core</artifactId>
-            <version>${multitenancy.version}</version>
+            <version>${revision}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>database-per-tenant</artifactId>
-            <version>${multitenancy.version}</version>
+            <version>${revision}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>interceptors</artifactId>
-            <version>${multitenancy.version}</version>
+            <version>${revision}</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
