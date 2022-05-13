@@ -5,19 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>spring-boot-starter-multitenancy</artifactId>
+        <artifactId>multitenancy-spring-boot-starter</artifactId>
         <groupId>io.github.julianrueck</groupId>
         <version>${revision}</version>
     </parent>
 
     <artifactId>core</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
 </project>
