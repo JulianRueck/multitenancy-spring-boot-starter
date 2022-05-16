@@ -8,7 +8,7 @@ A Shared Schema solution is currently under development.
 ```
 <dependency>
     <groupId>io.github.julianrueck</groupId>
-    <artifactId>spring-boot-starter-multitenancy</artifactId>
+    <artifactId>multitenancy-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
