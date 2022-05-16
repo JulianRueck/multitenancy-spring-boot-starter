@@ -5,12 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>multitenancy-spring-boot-starter</artifactId>
+        <artifactId>spring-boot-starter-multitenancy</artifactId>
         <groupId>io.github.julianrueck</groupId>
         <version>${revision}</version>
     </parent>
 
+    <groupId>io.github.julianrueck</groupId>
     <artifactId>multitenancy-spring-boot-autoconfigure</artifactId>
+    <version>${revision}</version>
+    <name>multitenancy-spring-boot-autoconfigure</name>
 
     <dependencies>
         <dependency>
@@ -21,6 +24,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

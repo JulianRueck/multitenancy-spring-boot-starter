@@ -5,23 +5,31 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>multitenancy-spring-boot-starter</artifactId>
+        <artifactId>spring-boot-starter-multitenancy</artifactId>
         <groupId>io.github.julianrueck</groupId>
         <version>${revision}</version>
     </parent>
 
+    <groupId>io.github.julianrueck</groupId>
     <artifactId>interceptors</artifactId>
+    <version>${revision}</version>
+    <name>interceptors</name>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>core</artifactId>
             <version>${revision}</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
