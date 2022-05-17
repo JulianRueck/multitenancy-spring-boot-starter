@@ -34,11 +34,11 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>io.github.julianrueck</groupId>-->
-<!--			<artifactId>multitenancy-starter</artifactId>-->
-<!--			<version>1.0.0</version>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>io.github.julianrueck</groupId>
+			<artifactId>multitenancy-spring-boot-starter</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
