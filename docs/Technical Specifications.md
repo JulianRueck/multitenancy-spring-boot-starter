@@ -29,18 +29,9 @@ So before anything happens the tenantId is retrieved from the request and is set
 ThreadLocal is used so that the context is bound to the currently executing thread.
 After the request is completed the tenantId is erased from the thread because Spring may reuse the thread in the thread pool,
 and you don't want to leak this information.
-```puml
-@startuml
-actor User
 
-User -> TenantIdInterceptor : PreHandle(request) 
-TenantIdInterceptor -> HTTPServletRequest : getHeader("tenantId")
-HTTPServletRequest --> TenantIdInterceptor : tenantId
-TenantIdInterceptor -> ThreadLocalStorage : setTenantId(tenantId)
-TenantIdInterceptor -> TenantIdInterceptor : AfterCompletion(request)
-TenantIdInterceptor -> ThreadLocalStorage : removeTenantId()
-@enduml
-```
+![PlantUML model](http://www.plantuml.com/plantuml/png/7Oqnii8m30NxVuhF0HBrLAafkO4ZQn8DikIH9HXkZw5wnTlPtKOKZspoTs55oKhfydz6z745yF9Q3uupznpaQ1gaiQ8rkALmqNiIFc1qPpsMtIoMduvyQId1aowARwZq9B4ErN00w_oHUfYl_HlUIElS3m00)
+
 ### AbstractRoutingDataSource
 During the handling of the request the AbstractRoutingDataSource returns the appropriate DataSource to utilize, using the tenantId stored in the ThreadLocalStorage.
 
