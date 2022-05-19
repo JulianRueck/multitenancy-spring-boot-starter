@@ -1,0 +1,10 @@
+@startuml
+actor User
+
+User -> TenantIdInterceptor : PreHandle(request)
+TenantIdInterceptor -> HTTPServletRequest : getHeader("tenantId")
+HTTPServletRequest --> TenantIdInterceptor : tenantId
+TenantIdInterceptor -> ThreadLocalStorage : setTenantId(tenantId)
+TenantIdInterceptor -> TenantIdInterceptor : AfterCompletion(request)
+TenantIdInterceptor -> ThreadLocalStorage : removeTenantId()
+@enduml

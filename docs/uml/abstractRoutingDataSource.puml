@@ -1,0 +1,8 @@
+@startuml
+actor User
+
+User -> TenantAwareRoutingSource : determineCurrentLookupKey()
+TenantAwareRoutingSource -> ThreadLocalStorage : getTenantId()
+ThreadLocalStorage --> TenantAwareRoutingSource : tenantId
+TenantAwareRoutingSource --> User : tenantId
+@enduml

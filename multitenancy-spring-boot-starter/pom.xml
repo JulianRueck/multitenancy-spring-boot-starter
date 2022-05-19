@@ -2,52 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <artifactId>spring-boot-starter-multitenancy</artifactId>
         <groupId>io.github.julianrueck</groupId>
         <version>${revision}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.julianrueck</groupId>
     <artifactId>multitenancy-spring-boot-starter</artifactId>
     <version>${revision}</version>
     <name>multitenancy-spring-boot-starter</name>
-    <description>Provides an implementation for multitenancy</description>
-    <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>Julian Rûeck</name>
-            <email>julian-rueck@hotmail.com</email>
-            <organization>Julian Rûeck</organization>
-            <organizationUrl>https://github.com/JulianRueck</organizationUrl>
-        </developer>
-    </developers>
-
-    <scm>
-        <connection>scm:git:git://github.com/JulianRueck/spring-boot-starter-multitenancy.git</connection>
-        <developerConnection>scm:git:ssh://github.com/JulianRueck/spring-boot-starter-multitenancy.git
-        </developerConnection>
-        <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
-    </scm>
-
-    <properties>
-        <java.version>17</java.version>
-    </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
         <dependency>
             <groupId>io.github.julianrueck</groupId>
             <artifactId>multitenancy-spring-boot-autoconfigure</artifactId>
@@ -120,6 +88,25 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>build-package</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -9,6 +10,12 @@
         <version>2.6.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <groupId>io.github.julianrueck</groupId>
+    <artifactId>spring-boot-starter-multitenancy</artifactId>
+    <version>${revision}</version>
+    <description>Provides an implementation for multitenancy</description>
+    <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
 
     <modules>
         <module>core</module>
@@ -18,13 +25,32 @@
         <module>multitenancy-spring-boot-starter</module>
     </modules>
 
-    <groupId>io.github.julianrueck</groupId>
-    <artifactId>spring-boot-starter-multitenancy</artifactId>
-    <version>${revision}</version>
-    <packaging>pom</packaging>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Julian Rûeck</name>
+            <email>julian-rueck@hotmail.com</email>
+            <organization>Julian Rûeck</organization>
+            <organizationUrl>https://github.com/JulianRueck</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/JulianRueck/spring-boot-starter-multitenancy.git</connection>
+        <developerConnection>scm:git:ssh://github.com/JulianRueck/spring-boot-starter-multitenancy.git
+        </developerConnection>
+        <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
+    </scm>
 
     <properties>
-        <revision>1.0.1</revision>
+        <revision>1.0.5</revision>
+        <java.version>17</java.version>
     </properties>
 
     <distributionManagement>
