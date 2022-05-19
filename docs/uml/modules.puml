@@ -1,0 +1,17 @@
+@startuml
+[multitenancy-spring-boot-starter] as msbs
+[multitenancy-spring-boot-autoconfigure] as msba
+[core] as core
+[interceptors] as interceptors
+[database-per-tenant] as dpt
+
+msbs ..> msba
+interceptors ..> core
+core <.. dpt
+msbs ..> core
+msbs ..> interceptors
+msbs ..> dpt
+core <.. msba : optional
+dpt <.. msba : optional
+interceptors <.. msba : optional
+@enduml
