@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.julianrueck.MultitenancyAutoConfiguration,\
+io.github.julianrueck.MultitenancyProperties,\
+io.github.julianrueck.TenantProperties
