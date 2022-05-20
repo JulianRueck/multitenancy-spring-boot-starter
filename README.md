@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.julianrueck/multitenancy-spring-boot-starter/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/io.github.julianrueck/multitenancy-spring-boot-starter)
+
 # Introduction
 This starter provides an application with multitenancy.
 It currently provides a database per tenant / schema per tenant solution.
