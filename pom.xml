@@ -12,7 +12,7 @@
 
     <groupId>io.github.julianrueck</groupId>
     <artifactId>multitenancy-spring-boot-starter</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <description>Provides an implementation for multitenancy</description>
     <url>https://github.com/JulianRueck/multitenancy-spring-boot-starter</url>
 
