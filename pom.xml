@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -12,18 +11,12 @@
     </parent>
 
     <groupId>io.github.julianrueck</groupId>
-    <artifactId>spring-boot-starter-multitenancy</artifactId>
+    <artifactId>multitenancy-spring-boot-starter</artifactId>
     <version>${revision}</version>
     <description>Provides an implementation for multitenancy</description>
-    <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
+    <url>https://github.com/JulianRueck/multitenancy-spring-boot-starter</url>
 
-    <modules>
-        <module>core</module>
-        <module>database-per-tenant</module>
-        <module>interceptors</module>
-        <module>multitenancy-spring-boot-autoconfigure</module>
-        <module>multitenancy-spring-boot-starter</module>
-    </modules>
+
 
     <licenses>
         <license>
@@ -42,14 +35,14 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/JulianRueck/spring-boot-starter-multitenancy.git</connection>
-        <developerConnection>scm:git:ssh://github.com/JulianRueck/spring-boot-starter-multitenancy.git
+        <connection>scm:git:git://github.com/JulianRueck/multitenancy-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://github.com/JulianRueck/multitenancy-spring-boot-starter.git
         </developerConnection>
-        <url>https://github.com/JulianRueck/spring-boot-starter-multitenancy</url>
+        <url>https://github.com/JulianRueck/multitenancy-spring-boot-starter</url>
     </scm>
 
     <properties>
-        <revision>1.0.5</revision>
+        <revision>1.0.7</revision>
         <java.version>17</java.version>
     </properties>
 
@@ -63,5 +56,91 @@
             <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.13</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

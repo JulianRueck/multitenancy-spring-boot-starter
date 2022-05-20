@@ -1,11 +1,4 @@
 # Technical Specifications
-## Design
-### multi module
-The project is subject to a multi module architecture.
-The below diagram describes the modules and their dependencies to each other.
-
-![PlantUML model](http://www.plantuml.com/plantuml/png/7OmxgeH0401pJw47qCvVPFp2lS4uq-Ym_P7-i7Zx7JOg2ehQFOf5CarBNCWuXpxJqgLIDaoZ-Ogu_G_0ocSxUrnvfADLbK29hIh3Vr8lyagiR_3RkfpheHhhxuosSbBqKHUf3t3f0ashGp81Qqj2t-uXquxI1hy0)
-
 ## Program Flow
 ### Interceptor
 The TenantIdInterceptors PreHandle method executes logic before the request is handled. 
