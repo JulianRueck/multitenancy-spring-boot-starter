@@ -1,7 +1,9 @@
 package io.github.julianrueck.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 @ConfigurationProperties("multitenancy")
 public class MultitenancyProperties {
 
