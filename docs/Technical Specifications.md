@@ -22,4 +22,4 @@ TenantProperties contains logic to create and return actual DataSource objects b
 In the MultitenancyAutoConfiguration class a DataSource Bean is defined. This DataSource contains all the user defined data sources in a Map.
 Spring framework automatically uses it for database operations.
 
-![PlantUML model](http://www.plantuml.com/plantuml/png/7Sqn3eCm38NXdLF00S1x9wHk7Nk345omcjZ8ULR5xOkOdlGDxvyRaYDgwGRiNBc7dTqWcaki75xw7JZQWyZJRze4UopHsBCfM35bg_IA8adVmVbBxN3HRLpCCDxFx6ED0W5hqdnIJQAqMcvqDUbMF4q_iat79TtCkbxx1m00)
+![PlantUML model](http://www.plantuml.com/plantuml/png/7SunheCm48JXdbF00M3xLr6_AieDZBq2A_QkjPvDnEr3gAOPwVlNZc3mMeO91rSUeUSmPOd54xkLyG1Q_oEoy5dsZCCtxsnH1InOebRwzvA3F9tZYweNPB04YUVScsNPvqqLyysmKU8t5ssKD7QwMBhFU9WsDcJkI_l5h2pfsYy0)
