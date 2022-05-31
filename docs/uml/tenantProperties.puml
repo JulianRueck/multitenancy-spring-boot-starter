@@ -1,0 +1,11 @@
+@startuml
+actor User
+
+application.yml -> TenantProperties : Automatic mapping
+User -> MultitenancyAutoConfiguration : dataSource = new AbstractRoutingDatasource()
+MultitenancyAutoConfiguration -> TenantProperties : getDataSources()
+TenantProperties -> TenantProperties : createDataSources()
+TenantProperties --> MultitenancyAutoConfiguration : dataSourceMap
+MultitenancyAutoConfiguration -> TenantAwareRoutingSource : setTargetDataSources(dataSourceMap)
+MultitenancyAutoConfiguration --> User : DataSource
+@enduml
