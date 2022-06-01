@@ -16,8 +16,6 @@
     <description>Provides an implementation for multitenancy</description>
     <url>https://github.com/JulianRueck/multitenancy-spring-boot-starter</url>
 
-
-
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -138,18 +136,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>1.7.6</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.pitest</groupId>
-                        <artifactId>pitest-junit5-plugin</artifactId>
-                        <version>0.15</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
