@@ -16,7 +16,7 @@ folder in the root of the project.
 <dependency>
     <groupId>io.github.julianrueck</groupId>
     <artifactId>multitenancy-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -25,10 +25,10 @@ folder in the root of the project.
 The starter is to be configured in the application.yml file (or application.properties if preferred). All settings are
 found under the "multitenancy" prefix. "implementation" denotes the type of multitenancy required. Currently only
 DATABASE_PER_TENANT is supported. 'interceptor' denotes the type of interceptor to be used. Currently the manner in
-which to idintify a tenant is by adding a tenantId to the header of a request. Thus the HEADER interceptor. An
+which to identify a tenant is by adding a tenantId to the header of a request. Thus the HEADER interceptor is used. An
 interceptor using JWT Tokens is currently under development.<br><br>
 All tenants are to be provided in the "tenantList" prefix. The id field is required to uniquely identify a tenant. Use
-this same id in in the value field of the request header with the key 'tenantId'.
+this same id in the value field of the request header with the key 'tenantId'.
 
 ```
 Request Headers
@@ -36,7 +36,7 @@ Request Headers
 Key: tenantId   Value: tenantId1  
 ```
 
-The dataSource generates a concrete DataSource object for said tenant to be used in the multitenancy logic.
+'dataSource' generates a concrete DataSource object for said tenant to be used in the multitenancy logic.
 
 ### application.yml
 

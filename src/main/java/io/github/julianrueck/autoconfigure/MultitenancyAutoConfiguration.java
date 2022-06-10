@@ -24,8 +24,9 @@ public class MultitenancyAutoConfiguration {
     }
 
     /**
-     *
-     * @return
+     * Creates a new InterceptorConfiguration Bean which is an implementation of WebMvcConfigurer.
+     * It registers the interceptor - the user provides in the application.yml file - to the InterceptorRegistry.
+     * @return new InterceptorConfiguration.
      */
     @Bean
     @ConditionalOnMissingBean
@@ -37,7 +38,7 @@ public class MultitenancyAutoConfiguration {
     /**
      * Creates a new AbstractRoutingDataSource object and sets its target data sources as specified by user.
      * @param tenantProperties
-     * @return DataSource object containing multiple data sources.
+     * @return new DataSource Bean containing multiple data sources.
      */
     @Bean
     @ConditionalOnMissingBean

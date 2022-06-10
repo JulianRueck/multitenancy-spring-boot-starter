@@ -9,14 +9,8 @@ public class TenantIdInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        // Implement your logic to extract the Tenant Name here. Another way would be to
-        // parse a JWT and extract the Tenant Name from the Claims in the Token. In the
-        // example code we are just extracting a Header value:
         String tenantId = request.getHeader("tenantId");
 
-        // Always set the tenantId, so we avoid leaking Tenants between Threads even in the scenario, when no
-        // Tenant is given. I do this because if somehow the afterCompletion Handler isn't called the tenantId
-        // could still be persisted within the ThreadLocal:
         ThreadLocalStorage.setTenantId(tenantId);
 
         return true;
